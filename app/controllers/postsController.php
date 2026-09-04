@@ -11,7 +11,7 @@ use \App\Models\PostsModel;
 /**
  * @param PDO $connexion
  */
-function indexAction(PDO $connexion)
+function indexAction(\PDO $connexion)
 //je mets dans $posts la liste des 10 derniers posts que je demande au modele
 //je charge la vue posts/indes dans 
 {

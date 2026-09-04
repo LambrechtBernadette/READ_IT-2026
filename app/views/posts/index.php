@@ -1,12 +1,10 @@
 <?php
 
-/**
- * @var array
- * variables disponible :
- *  $posts : (id, title, created_at, resumme, image, content, author_id, categorie_id)
- * 
- * app/views/posts/index.php
- */
+/*
+./app/views/posts/index.php
+Variables disponible :
+$posts : ARRAY(ARRAY(id, title, created_at, resume, image, content, author_id, categorie_id))
+*/
 ?>
 
 <div class="container">
