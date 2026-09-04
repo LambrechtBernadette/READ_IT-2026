@@ -2,8 +2,6 @@
 
 /*
 ./app/controllers/postsController.php
-
-
 */ 
 
 namespace App\Controllers\PostsController;
@@ -24,6 +22,23 @@ function indexAction(PDO $connexion)
     $title = "Blog";
     ob_start();
     include '../app/views/posts/index.php';
+    $content = ob_get_clean();
+}
+
+function showAction(\PDO $connexion, int $id) {
+
+//je mets dans $post les infos du post que je demande au modèle
+    
+    include_once '../app/models/postsModel.php';
+    
+    $post = PostsModel\findOneById($connexion, $id);
+
+    //je charge la vue show dans $content
+
+    GLOBAL $title, $content;
+    $title = $post['title'];
+    ob_start();
+    include '../app/views/posts/show.php';
     $content = ob_get_clean();
 }
 

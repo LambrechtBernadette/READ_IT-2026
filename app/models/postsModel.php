@@ -13,11 +13,25 @@ function findall(\PDO $connexion) :array
             LIMIT 10;";
 
     $rs = $connexion->query($sql);
-    $posts = $rs->fetchAll(PDO::FETCH_ASSOC);
-    $rs->closeCursor();
-    unset($rs);
-    return $posts;
-
+    return $rs->fetchAll(\PDO::FETCH_ASSOC);
     
+}
 
+/**
+ * [findOneByid description]
+ * @param  \PDO $connexion [description]
+ * @param  int $id        [description]
+ * @return array            [description]
+ */
+
+function findOneById(\PDO $connexion, int $id) :array
+{
+    $sql = "SELECT *
+            FROM posts
+            WHERE id = :id;";
+
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
+    $rs->execute();
+    return $rs->fetch(\PDO::FETCH_ASSOC);
 }
