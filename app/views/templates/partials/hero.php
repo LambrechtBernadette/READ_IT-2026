@@ -1,5 +1,5 @@
 <?php
-/*./app/views/templates/partials/header.php
+/*./app/views/templates/partials/hero.php
 
 */
 ?>

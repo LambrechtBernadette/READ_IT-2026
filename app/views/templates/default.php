@@ -15,7 +15,7 @@ Template par défaut*/
     <!-- END nav -->
 
     <!--header-->
-    <?php include '../app/views/templates/partials/header.php'; ?>
+    <?php include '../app/views/templates/partials/hero.php'; ?>
     <!--END header-->
 
     <?php include '../app/views/templates/partials/main.php'; ?>

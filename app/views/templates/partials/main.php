@@ -1,3 +1,9 @@
+<?php
+/*./app/views/templates/partials/main.php
+
+*/
+?>
+
 <main>
       <div class="container">
         <div class="row">
