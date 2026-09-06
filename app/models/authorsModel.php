@@ -1,21 +1,10 @@
 <?php
 
-namespace App\Models\PostsModel;
+namespace App\Models\AuthorsModel;
 
 use \PDO;
 
 
-function findall(\PDO $connexion) :array
-{
-    $sql = "SELECT *
-            FROM posts
-            ORDER BY created_at DESC
-            LIMIT 10;";
-
-    $rs = $connexion->query($sql);
-    return $rs->fetchAll(\PDO::FETCH_ASSOC);
-    
-}
 
 /**
  * [findOneByid description]
@@ -27,7 +16,7 @@ function findall(\PDO $connexion) :array
 function findOneById(\PDO $connexion, int $id) :array
 {
     $sql = "SELECT *
-            FROM posts
+            FROM authors
             WHERE id = :id;";
 
     $rs = $connexion->prepare($sql);

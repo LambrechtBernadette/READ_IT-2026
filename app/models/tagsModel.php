@@ -3,10 +3,11 @@
 namespace App\Models\TagsModel;
 
 /**
- * Undocumented function
+ * [findAllByPostId description]
  *
- * @param \PDO $connexion
- * @return array
+ * @param \PDO $connexion   [description]
+ * @param int $postId       [description] 
+ * @return array            [description]
  */
 function findAllByPostId(\PDO $connexion, int $postId) :array
 {

@@ -4,6 +4,7 @@
  * @var array
  * variables disponible :
  *  $post : ARRAY (id, title, created_at, resumme, image, content, author_id, categorie_id)
+ *  $author: ARRAY(id, firstname, lastname, biography, image)
  * 
  * app/views/posts/show.php
  */
@@ -25,6 +26,10 @@
 <?php
     include_once '../app/controllers/tagsController.php';  
     \App\Controllers\TagsController\indexByPostIdAction($connexion, $post['id']);
+?>
 
+<!--AUTHOR DETAILS-->
+
+<?php include '../app/views/authors/show.php'; ?>
 
             

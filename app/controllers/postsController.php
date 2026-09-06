@@ -1,4 +1,17 @@
 <?php
+/*
+Vous ouvrez directement show.php : cette vue n’est pas autonome et $post n’existe pas.
+L’URL ne contient pas postId, par exemple index.php au lieu de index.php?postId=1.
+L’identifiant n’existe pas en base : findOneById() retourne alors false, et non un tableau.
+Ajoutez une vérification dans showAction() pour gérer ce cas et afficher un message d’erreur 404.
+$post = PostsModel\findOneById($connexion, $id);
+*/
+/*
+if ($post === false) {
+    http_response_code(404);
+    exit('Article introuvable');
+}
+/*
 
 /*
 ./app/controllers/postsController.php
@@ -26,14 +39,16 @@ function indexAction(\PDO $connexion)
 }
 
 function showAction(\PDO $connexion, int $id) {
-
-//je mets dans $post les infos du post que je demande au modèle
-    
+// je mets dans $post les infos du post que je demande au modèle
     include_once '../app/models/postsModel.php';
-    
     $post = PostsModel\findOneById($connexion, $id);
 
-    //je charge la vue show dans $content
+// je mets dans $author les infos de l'auteur du post qu je demande au modèle au authorModele
+
+    include_once '../app/models/authorsModel.php';
+    $author = \App\Models\AuthorsModel\findOneById($connexion, $post['author_id']);
+
+// je charge la vue show dans $content
 
     GLOBAL $title, $content;
     $title = $post['title'];
