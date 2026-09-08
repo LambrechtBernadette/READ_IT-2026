@@ -25,6 +25,7 @@
               <ul class="list-unstyled">
                 <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Home</a></li>
                 <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Contact</a></li>
+                <li><a href="users/login-form" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Connection</a></li>
               </ul>
             </div>
           </div>

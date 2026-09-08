@@ -13,7 +13,18 @@ RewriteRule ^ - [L]
 # URL: ?posts=show&id=x
 RewriteRule ^posts\/([1-9][0-9]*)\/[a-z0-9]([a-z0-9\-]*[a-z0-9])*$ ?posts=show&id=$1 [L]
 
+#--------------------------------------------
+# ROUTE USERS.LOGINFORM
+# PATTERN: /users/login-form
+# URL: ?users=login-form
+RewriteRule ^users\/login\-form$ ?users=login-form [L]
+
+
 #-----------------------------
 # FALLBACK
 # toute autre URL non prise en charge retour vers index.php
 RewriteRule ^ index.php [L]
+
+
+
+
