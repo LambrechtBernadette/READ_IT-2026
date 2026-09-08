@@ -1,21 +1,11 @@
 <?php
 
+
+
 namespace App\Models\PostsModel;
 
 use \PDO;
 
-
-function findall(\PDO $connexion) :array
-{
-    $sql = "SELECT *
-            FROM posts
-            ORDER BY created_at DESC
-            LIMIT 10;";
-
-    $rs = $connexion->query($sql);
-    return $rs->fetchAll(\PDO::FETCH_ASSOC);
-    
-}
 
 /**
  * [findOneByid description]
@@ -24,14 +14,30 @@ function findall(\PDO $connexion) :array
  * @return array            [description]
  */
 
-function findOneById(\PDO $connexion, int $id) :array
+
+function findall(PDO $connexion, int $limit = 10)
+{
+    $sql = "SELECT *
+            FROM posts
+            ORDER BY created_at DESC
+            LIMIT :limit;";
+
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $rs->execute();
+    return $rs->fetchAll(PDO::FETCH_ASSOC);
+    
+}
+
+
+function findOneById(PDO $connexion, int $id) :array
 {
     $sql = "SELECT *
             FROM posts
             WHERE id = :id;";
 
     $rs = $connexion->prepare($sql);
-    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
+    $rs->bindValue(':id', $id, PDO::PARAM_INT);
     $rs->execute();
-    return $rs->fetch(\PDO::FETCH_ASSOC);
+    return $rs->fetch(PDO::FETCH_ASSOC);
 }

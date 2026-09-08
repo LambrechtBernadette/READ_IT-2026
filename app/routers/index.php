@@ -1,23 +1,18 @@
 <?php
-//ROUTEUR PRINCIPAL
 
-//ROUTE DETAIL D UN POST
-//PATTERN : ?postId=x
-//CTRL : PostsController
-//ACTION : showAction   
+// ROUTE POSTS.SHOW
+// PATTERN: /posts/id/slug
+// URL: ?posts=show&id=x
+// ROUTER posts
+if (isset($_GET['posts'])):
+    include_once '../app/routers/posts.php';
 
-if (isset($_GET['postId'])): 
-    include_once '../app/controllers/postsController.php';
-    \App\Controllers\PostsController\showAction($connexion, $_GET['postId']);
-
-
-
-//ROUTE PAR DEFAUT
-//PATTERN : /
-//CTRL : PostsController
-//ACTION : indexAction
+// ROUTE PAR DÉFAUT: Les 10 derniers posts
+// PATTERN: /
+// URL: ?
+// CTRL: postsController
+// ACTION: index
 else:
-include_once '../app/controllers/postsController.php';
-
-\App\Controllers\PostsController\indexAction($connexion);
+    include_once '../app/controllers/postsController.php';
+    \App\Controllers\PostsController\indexAction($connexion);
 endif;

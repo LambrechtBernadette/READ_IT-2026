@@ -1,10 +1,15 @@
 <?php
 
-/*
-./app/views/authors/show.php
-Variables disponible :
-$author : ARRAY(id, firsname, lastname, biography)
-*/
+/**
+ * @var array $author
+ * 
+ * ./app/views/authors/show.php
+ * Variables disponible :
+ * $author : ARRAY(id, firsname, lastname, biography)
+ * 
+ */
+
+
 ?>
 
 

@@ -26,6 +26,8 @@ Template par défaut*/
 <!-- loader -->
 
     <?php include '../app/views/templates/partials/loader.php'; ?>
+
+    <?php include '../app/views/templates/partials/scripts.php'; ?>
   
   </body>
 </html>
