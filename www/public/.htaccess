@@ -19,6 +19,13 @@ RewriteRule ^posts\/([1-9][0-9]*)\/[a-z0-9]([a-z0-9\-]*[a-z0-9])*$ ?posts=show&i
 # URL: ?users=login-form
 RewriteRule ^users\/login\-form$ ?users=login-form [L]
 
+#--------------------------------------------
+# ROUTE USERS.LOGINFORM
+# PATTERN: /users/login
+# URL: ?users=login
+RewriteRule ^users\/login$ ?users=login [L]
+#----------------------------------------------
+
 
 #-----------------------------
 # FALLBACK

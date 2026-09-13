@@ -1,12 +1,13 @@
 <?php
 
+/*
+./app/models/authorsModel.php
+*/
+
 namespace App\Models\AuthorsModel;
 
-use \PDO;
 
-
-
-/**
+/*
  * [findOneByid description]
  * @param  \PDO $connexion  [description]
  * @param  int $id          [description]

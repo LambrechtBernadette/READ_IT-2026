@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Controllers\PostsController;
-
 
 use \PDO;
 use \App\Models\PostsModel;
@@ -22,10 +20,18 @@ function indexAction(PDO $connexion)
 
 
 function showAction(PDO $connexion, int $id)
+
 {
+    
     include_once '../app/models/postsModel.php';
     $post = PostsModel\findOneById($connexion, $id);
 
+    /*je mets dans $author les infos de l'auteur du post que je demande au modèle authorModele*/
+
+    include_once '../app/models/authorsModel.php';
+    $author = \App\Models\AuthorsModel\findOneById($connexion, $post['author_id']);
+
+    // Je charge la vue show dans $content
 
     global $content, $title;
     $title = $post['title'];

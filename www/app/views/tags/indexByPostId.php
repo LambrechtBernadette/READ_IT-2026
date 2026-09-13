@@ -2,8 +2,7 @@
 
 /**
  * ./app/views/tags/indexByPostId.php
- * variables disponible :
- *  $tags: ARRAY(ARRAY(id,name))
+ * @var array $tags
  */
 ?>
 <div class="tag-widget post-tag-container mb-5 mt-5">

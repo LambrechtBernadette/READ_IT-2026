@@ -7,9 +7,6 @@
  * Variables disponible :
  * $posts : ARRAY(id, title, created_at, resume, image, content, author_id, categorie_id))
  */
-
-
-
 ?>
 
 <div class="container">

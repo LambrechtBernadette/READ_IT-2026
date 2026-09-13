@@ -14,3 +14,8 @@ function loginFormAction(PDO $connexion)
     include '../app/views/users/loginForm.php';
     $content = ob_get_clean();
 }
+
+function loginAction (PDO $connexion, array $userData){
+    var_dump($userData);
+    die();
+}
