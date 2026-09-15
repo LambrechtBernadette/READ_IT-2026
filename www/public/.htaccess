@@ -32,6 +32,3 @@ RewriteRule ^users\/login$ ?users=login [L]
 # toute autre URL non prise en charge retour vers index.php
 RewriteRule ^ index.php [L]
 
-
-
-
