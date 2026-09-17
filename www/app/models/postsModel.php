@@ -29,6 +29,25 @@ function findall(PDO $connexion, int $limit = 10)
     
 }
 
+function findallRecents(PDO $connexion, int $limit = 10)
+{
+    $sql = "SELECT p.id, p.title, p.created_at, p.image,
+                a.firstname, a.lastname,
+                COUNT(c.id) AS nbrComments
+            FROM posts p
+            JOIN authors a ON p.author_id = a.id
+            LEFT JOIN comments c ON c.post_id = p.id
+            GROUP BY p.id
+            ORDER BY p.created_at DESC
+            LIMIT :limit;";
+
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $rs->execute();
+    return $rs->fetchAll(PDO::FETCH_ASSOC);
+    
+}
+
 
 function findOneById(PDO $connexion, int $id) :array
 {
