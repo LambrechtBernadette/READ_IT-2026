@@ -28,6 +28,16 @@
               ?>
           
               </div>
+
+              <div class="sidebar-box ftco-animate">
+              <?php
+                include_once '../app/models/tagsModel.php';
+                $tags = \App\Models\TagsModel\findAll($connexion);
+                include '../app/views/tags/index.php';
+              ?>
+          
+              </div>
+
               <div class="block-21 mb-4 d-flex">
                 <a class="blog-img mr-4" style="background-image: url(images/image_3.jpg);"></a>
                 <div class="text">
@@ -42,17 +52,7 @@
             </div>
 
             <div class="sidebar-box ftco-animate">
-              <h3>Tag Cloud</h3>
-              <div class="tagcloud">
-                <a href="#" class="tag-cloud-link">cat</a>
-                <a href="#" class="tag-cloud-link">abstract</a>
-                <a href="#" class="tag-cloud-link">people</a>
-                <a href="#" class="tag-cloud-link">person</a>
-                <a href="#" class="tag-cloud-link">model</a>
-                <a href="#" class="tag-cloud-link">delicious</a>
-                <a href="#" class="tag-cloud-link">desserts</a>
-                <a href="#" class="tag-cloud-link">drinks</a>
-              </div>
+              
             </div>
 
     
