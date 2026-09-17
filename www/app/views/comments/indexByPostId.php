@@ -1,7 +1,7 @@
 <?php
 /**
  * ./app/views/comments/indexByPostId.php
- * @var array $comments
+ * @var array $comments, $post_id
  */
 ?>
 <div class="pt-5 mt-5">
