@@ -22,7 +22,9 @@ function loginAction (PDO $connexion, array $userData){
 
     // si il y en a pas, on redirige vers la route login
 
-    if (!$user):     
+    if (!$user): 
+        if (isset($_SESSION['user'])) unset ($_SESSION['user']);
+
 // Placez ce code avant tout affichage HTML ou espace blanc
         header('Location: '. PUBLIC_BASE_URL .'users=login-form'); 
 
@@ -30,6 +32,7 @@ function loginAction (PDO $connexion, array $userData){
 
 // on redirige vers le dashboard admin
     else:
+        $_SESSION['user'] = $user;
         header('Location: ' . ADMIN_BASE_URL);
         
     endif;
