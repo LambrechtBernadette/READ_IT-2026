@@ -1,10 +1,6 @@
 
 <?php
 
-
-
-
-
 // ROUTE PAR DÉFAUT: Dashboard
 // PATTERN: /
 // URL: ?

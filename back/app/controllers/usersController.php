@@ -24,17 +24,15 @@ function loginAction (PDO $connexion, array $userData){
 
     if (!$user):     
 // Placez ce code avant tout affichage HTML ou espace blanc
-        header('Location: '. PUBLIC_BASE_URL .'users/login-form'); 
-
+        header('Location: ' . PUBLIC_BASE_URL . '?users=login-form');
+        exit;
 // pour voir si ça fonctionne : var_dump($user)
 
 // on redirige vers le dashboard admin
-    
     else:
         header('Location: ' . ADMIN_BASE_URL);
-        
+        exit;
+    
     endif;
-
-        
 }
 

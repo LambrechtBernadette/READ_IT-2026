@@ -4,7 +4,7 @@
      </div>
 
 
-     <form action="users/login" method="post" class="bg-light p-4 p-md-5 contact-form">
+     <form action="?users=login" method="post" class="bg-light p-4 p-md-5 contact-form">
          <div class="form-group">
              <input type="text" class="form-control" placeholder="alex.doe@example.com" name="login">
          </div>
