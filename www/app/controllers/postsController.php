@@ -40,4 +40,15 @@ function showAction(PDO $connexion, int $id)
     $content = ob_get_clean();
 }
 
+function lastestIndexAction(PDO $connexion, int $limit = 3)
+{
+    //je mets dans $posts la liste des derniers posts que je demande au modele
+    include_once '../app/models/postsModel.php';
+    $posts = PostsModel\findAllRecents($connexion, $limit);
+
+    //je charge la vue posts/index_recent directement (pas dans $content)
+
+    include '../app/views/posts/index_recent.php';
+}
+
 

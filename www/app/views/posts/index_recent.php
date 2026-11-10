@@ -19,7 +19,7 @@
                 <div class="text">
                   <h3 class="heading"><a href="#"><?php echo $post['title']; ?></a></h3>
                   <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> <?php echo date('M. d, Y', $created_at);?>, created_at</a></div>
+                    <div><a href="#"><span class="icon-calendar"></span> <?php echo date('M. d, Y', $created_at);?></a></div>
                     <div><a href="#"><span class="icon-person"></span><?php echo $post['firstname']; ?> <?php echo $post['lastname']; ?></a></div>
                     <div><a href="#"><span class="icon-chat"></span> <?php echo $post['nbrComments']; ?></a></div>
                   </div>

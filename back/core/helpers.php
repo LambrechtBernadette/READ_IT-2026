@@ -5,7 +5,6 @@ namespace Core\Helpers;
 //functionfateFromator(string $date, string $format = "d/m/Y"): string
 //{
     //return date($format, strtotime($date));
-
 //}
 
 

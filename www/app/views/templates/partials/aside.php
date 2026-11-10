@@ -14,26 +14,23 @@
             </div>
             <div class="sidebar-box ftco-animate">
               <?php
-                include_once '../app/models/categoriesModel.php';
-                $categories = \App\Models\CategoriesModel\findAll($connexion);
-                include '../app/views/categories/index.php';
+                include_once '../app/controllers/categoriesController.php';
+                \App\Controllers\CategoriesController\indexAction($connexion);
               ?>
             </div>
 
             <div class="sidebar-box ftco-animate">
               <?php
-                include_once '../app/models/postsModel.php';
-                $posts = \App\Models\PostsModel\findAllRecents($connexion, 3);
-                include '../app/views/posts/index_recent.php';
+                include_once '../app/controllers/postsController.php';
+                \App\Controllers\PostsController\lastestIndexAction($connexion, 3);
               ?>
           
               </div>
 
               <div class="sidebar-box ftco-animate">
               <?php
-                include_once '../app/models/tagsModel.php';
-                $tags = \App\Models\TagsModel\findAll($connexion);
-                include '../app/views/tags/index.php';
+                include_once '../app/controllers/tagsController.php';
+                \App\Controllers\TagsController\indexAction($connexion);
               ?>
           
               </div>

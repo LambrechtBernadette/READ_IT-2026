@@ -36,8 +36,8 @@
                 <li><a href="#">Ajouter un post</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">GESTION DES CATÉGORIES</li>
-                <li><a href="#">Liste des catégories</a></li>
-                <li><a href="#">Ajouter une catégorie</a></li>
+                <li><a href="categories">Liste des catégories</a></li>
+                <li><a href="categories/add/form">Ajouter une catégorie</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">GESTION DES TAGS</li>
                 <li><a href="#">Liste des tags</a></li>
@@ -48,8 +48,10 @@
                 <li><a href="#">Ajouter un utilisateur</a></li>
               </ul>
             </li>
+            <li><a href="index.php?users=logout">LOGOUT</a></li>
           </ul>
         </div>
         <!--/.nav-collapse -->
+
       </div>
     </nav>

@@ -6,6 +6,8 @@
     <meta name="author" content="" />
     <link rel="icon" href="../../favicon.ico" />
 
+    <base href="<?php echo ADMIN_BASE_URL; ?>">
+
     <title>BACKOFFICE - <?php echo $title; ?></title>
 
     <!-- Bootstrap core CSS -->

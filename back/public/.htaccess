@@ -5,27 +5,72 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-#----------------------------
+#--------------------------------------------
 # REGLE DE RE-ECRITURE
-
-# ROUTE POSTS.SHOW
-# PATTERN: /posts/id/slug
-# URL: ?posts=show&id=x
-RewriteRule ^posts\/([1-9][0-9]*)\/[a-z0-9]([a-z0-9\-]*[a-z0-9])*$ ?posts=show&id=$1 [L]
+#--------------------------------------------
 
 #--------------------------------------------
-# ROUTE USERS.LOGINFORM
-# PATTERN: /users/login-form
-# URL: ?users=login-form
-RewriteRule ^users\/login\-form$ ?users=login-form [L]
+# ROUTE DES CATEGORIES
 
-#--------------------------------------------
-# ROUTE USERS.LOGINFORM
-# PATTERN: /users/login
-# URL: ?users=login
-RewriteRule ^users\/login$ ?users=login [L]
+# PATTERN: categories/delete/id=x
+# URL: index.php?categories=delete&id=x
+RewriteRule ^categories\/delete\/([1-9][0-9]*)$ index.php?categories=delete&id=$1 [L]
+
+
+# PATTERN: categories/update/id=x
+# URL: index.php?categories=update&id=x
+RewriteRule ^categories\/update\/([1-9][0-9]*)$ index.php?categories=update&id=$1 [L]
+
+# PATTERN: categories/edit/form/id=x
+# URL: index.php?categories=editForm&id=x
+RewriteRule ^categories\/edit\/form\/([1-9][0-9]*)$ index.php?categories=editForm&id=$1 [L]
+
+# PATTERN: categories/add/insert
+# URL: index.php?categories=insert
+RewriteRule ^categories\/add\/insert$ index.php?categories=insert [L]
+
+# PATTERN: categories/add/form
+# URL: index.php?categories=addForm
+RewriteRule ^categories\/add\/form$ index.php?categories=addForm [L]
+
+
+# PATTERN: categories
+# URL: index.php?categories=index
+RewriteRule ^categories$ index.php?categories=index [L]
 #----------------------------------------------
 
+# ROUTE USERS
+
+# PATTERN: users/delete/id=x
+# URL: index.php?users=delete&id=x
+RewriteRule ^users\/delete\/([1-9][0-9]*)$ index.php?users=delete&id=$1 [L]
+
+
+# PATTERN: users/update/id=x
+# URL: index.php?users=update&id=x
+RewriteRule ^users\/update\/([1-9][0-9]*)$ index.php?users=update&id=$1 [L]
+
+# PATTERN: users/edit/form/id=x
+# URL: index.php?users=editForm&id=x
+RewriteRule ^users\/edit\/form\/([1-9][0-9]*)$ index.php?users=editForm&id=$1 [L]
+
+# PATTERN: users/add/insert
+# URL: index.php?users=insert
+RewriteRule ^users\/add\/insert$ index.php?users=insert [L]
+
+# PATTERN: users/add/form
+# URL: index.php?users=addForm
+RewriteRule ^users\/add\/form$ index.php?users=addForm [L]
+
+
+# PATTERN: users
+# URL: index.php?users=index
+RewriteRule ^users$ index.php?users=index [L]
+
+# PATTERN: /users/logout
+# URL: ?users=logout
+RewriteRule ^users\/logout$ index.php?users=logout [L,QSA]
+#----------------------------------------------
 
 #-----------------------------
 # FALLBACK

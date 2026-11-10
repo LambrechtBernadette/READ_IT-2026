@@ -6,33 +6,74 @@ use \PDO;
 use \App\Models\UsersModel;
 // include_once '../app/models/usersModel.php';
 
-function loginFormAction(PDO $connexion)
-{
-    global $content, $title;
-    $title = "Login Form";
+
+
+
+function logoutAction(){
+    unset($_SESSION['user']);
+    header('Location: ' . PUBLIC_BASE_URL); // je reviens vers index du www
+    exit;
+
+}
+
+function indexAction(\PDO $connexion){
+    include_once '../app/models/usersModel.php';
+
+    $categories = UsersModel\findAll($connexion);
+
+    GLOBAL $content, $title;
+    $title = 'Utilisateurs';
+
     ob_start();
-    include '../app/views/users/loginForm.php';
+    include '../app/views/users/index.php';
     $content = ob_get_clean();
 }
 
-function loginAction (PDO $connexion, array $userData){
-    include_once '../app/models/usersModel.php';
-    // on va hercher le/la user.euse qui correspond aux userData
-    $user = UsersModel\findOneByLoginPwd($connexion, $userData);
+function addFormAction(){
+    GLOBAL $title, $content;
 
-    // si il y en a pas, on redirige vers la route login
+    $title = "Ajout d'un utilisateur";
+    ob_start();
+    include '../app/views/users/addForm.php';
+    $content = ob_get_clean();
 
-    if (!$user):     
-// Placez ce code avant tout affichage HTML ou espace blanc
-        header('Location: ' . PUBLIC_BASE_URL . '?users=login-form');
-        exit;
-// pour voir si ça fonctionne : var_dump($user)
-
-// on redirige vers le dashboard admin
-    else:
-        header('Location: ' . ADMIN_BASE_URL);
-        exit;
-    
-    endif;
 }
+
+function editFormAction(\PDO $connexion, int $id)
+{
+    
+include_once '../app/models/usersModel.php';
+
+    $category = UsersModel\findOneById($connexion, $id);
+    GLOBAL $title, $content;
+
+    $title = "modification d'un user";
+    ob_start();
+    include '../app/views/users/editForm.php';
+    $content = ob_get_clean();
+}
+
+function insertAction(\PDO $connexion, array $data){
+    include_once '../app/models/usersModel.php'; 
+    $id = UsersModel\insert($connexion,$data);
+
+    header('location: ' . ADMIN_BASE_URL . 'users');
+}
+
+function updateAction(\PDO $connexion, array $data){
+     include_once '../app/models/usersModel.php'; 
+    $id = UsersModel\update($connexion,$data);
+
+    header('location: ' . ADMIN_BASE_URL . 'users');
+}
+
+function deleteAction(\PDO $connexion, int $id){
+     include_once '../app/models/usersModel.php'; 
+    $return = UsersModel\delete($connexion,$id);
+
+    header('location: ' . ADMIN_BASE_URL . 'users');
+}
+
+
+
 
